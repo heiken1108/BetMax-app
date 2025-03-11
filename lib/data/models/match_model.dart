@@ -8,7 +8,6 @@ class MatchModel {
   final String tournament;
   final HUBModel odds;
   final EloModel elo;
-  final HUBModel oddsDifferences;
   final HUBModel expectedValue;
 
   MatchModel(
@@ -19,7 +18,6 @@ class MatchModel {
       required this.awayTeam,
       required this.odds,
       required this.elo,
-      required this.oddsDifferences,
       required this.expectedValue});
 
   factory MatchModel.fromJson(Map<String, dynamic> json) {
@@ -31,7 +29,6 @@ class MatchModel {
       tournament: json['tournament'],
       odds: HUBModel.fromJson(json['odds']),
       elo: EloModel.fromJson(json['elo']),
-      oddsDifferences: HUBModel.fromJson(json['odds_differences']),
       expectedValue: HUBModel.fromJson(json['expected_value']),
     );
   }
@@ -45,7 +42,6 @@ class MatchModel {
       'tournament': tournament,
       'odds': odds.toJson(),
       'elo': elo.toJson(),
-      'odds_differences': oddsDifferences.toJson(),
       'expected_value': expectedValue.toJson(),
     };
   }
