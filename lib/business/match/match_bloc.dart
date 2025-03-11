@@ -24,6 +24,12 @@ class MatchBloc extends Bloc<MatchEvent, MatchState> {
 
   Future<void> _onLoadMatchById(
       LoadMatchById event, Emitter<MatchState> emit) async {
-    try {} catch (e) {}
+    try {
+      emit(MatchLoading());
+      final match = await betmaxRepository.getMatchDetail(event.ntId);
+      emit(MatchLoadedById(match));
+    } catch (e) {
+      emit(MatchError('Failed to load match detail: $e'));
+    }
   }
 }

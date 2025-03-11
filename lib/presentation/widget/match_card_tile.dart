@@ -30,6 +30,7 @@ class MatchCardTile extends StatelessWidget {
               children: [
                 Text(
                   match.tournament,
+                  overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     color: Colors.grey,
                     fontWeight: FontWeight.w500,

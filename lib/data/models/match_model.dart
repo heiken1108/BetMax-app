@@ -1,5 +1,4 @@
-import 'package:betmax_app_master/data/models/elo_model.dart';
-import 'package:betmax_app_master/data/models/hub_model.dart';
+import 'package:betmax_app_master/data/models/helper_models.dart';
 
 class MatchModel {
   final String ntId;

@@ -1,3 +1,4 @@
+import 'package:betmax_app_master/data/models/match_detail_model.dart';
 import 'package:betmax_app_master/data/models/match_model.dart';
 
 abstract class MatchState {}
@@ -12,7 +13,7 @@ class MatchesLoaded extends MatchState {
 }
 
 class MatchLoadedById extends MatchState {
-  final MatchModel match;
+  final MatchDetailModel match;
   MatchLoadedById(this.match);
 }
 
