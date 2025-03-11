@@ -1,3 +1,4 @@
+import 'package:betmax_app_master/presentation/widget/market_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:betmax_app_master/business/match/match_bloc.dart';
@@ -25,8 +26,6 @@ class _MatchDetailScreenState extends State<MatchDetailScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Match Details'),
-        // Don't override the default back button behavior
-        // Flutter will handle the back navigation properly
       ),
       body: BlocBuilder<MatchBloc, MatchState>(
         builder: (context, state) {
@@ -38,11 +37,10 @@ class _MatchDetailScreenState extends State<MatchDetailScreen> {
             return SingleChildScrollView(
               child: Column(
                 children: [
-                  // Example UI elements
                   Text(match.homeTeam, style: TextStyle(fontSize: 20)),
                   Text('vs', style: TextStyle(fontSize: 16)),
                   Text(match.awayTeam, style: TextStyle(fontSize: 20)),
-                  // More UI elements as needed
+                  ...match.markets.map((market) => MarketTile(market: market))
                 ],
               ),
             );
